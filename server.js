@@ -12,8 +12,10 @@ GitHub Repository URL:
 ********************************************************************************/ 
 const express = require('express'); 
 const path = require("path"); 
-const app = express();
 const storeservice = require('./store-service');
+
+const app = express();
+
 
 const HTTP_PORT = process.env.PORT || 8080;
     
@@ -58,3 +60,5 @@ console.log(`Server listening on: ${HTTP_PORT}`);
 .catch(err => {
 console.error(`Failed to initialize the data: ${err}`);
  });
+
+ module.exports = app;
