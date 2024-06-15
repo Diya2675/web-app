@@ -6,8 +6,8 @@ No part of this assignment has been copied manually or electronically from any o
 Name: Diya Keyur Acharya
 Student ID: 162776223
 Date: 11th June
-Vercel Web App URL: 
-GitHub Repository URL: 
+Vercel Web App URL: https://web-app-beta-ochre.vercel.app/about
+GitHub Repository URL: https://github.com/Diya2675/web-app
 
 ********************************************************************************/ 
 const express = require('express'); 
