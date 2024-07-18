@@ -21,7 +21,7 @@ function readFile(filePath) {
     });
 }
 function initialize() {
-     return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         const itemsPath = path.join(__dirname, 'data', 'items.json');
         const categoriesPath = path.join(__dirname, 'data', 'categories.json');
         
@@ -85,6 +85,7 @@ function addItem(itemData) {
             }
 
             itemData.id = items.length + 1;
+            itemData.postDate = new Date().toISOString().split('T')[0]; // Set postDate to the current date
             items.push(itemData);
             resolve(itemData);
         }
@@ -112,19 +113,28 @@ function getCategories() {
     });
 }
 
-function getItemsByCategory(category) {
+function getPublishedItemsByCategory(category) {
     return new Promise((resolve, reject) => {
-        
-        const filteredItems = items.filter(item => item.category === category);
-
-        if (filteredItems.length > 0) {
-            resolve(filteredItems);
+        const publishedItemsByCategory = items.filter(item => item.published === true && item.category === category);
+        if (publishedItemsByCategory.length > 0) {
+            resolve(publishedItemsByCategory);
         } else {
             reject("No results returned");
         }
     });
 }
 
+function getItemsByCategory(category) {
+    return new Promise((resolve, reject) => {
+        const itemsByCategory = items.filter(item => item.category === category);
+        if (itemsByCategory.length > 0) {
+            resolve(itemsByCategory);
+        } else {
+            reject("No results returned");
+        }
+    });
+}
+  
 function getItemsByMinDate(minDateStr) {
     return new Promise((resolve, reject) => {
         
@@ -160,5 +170,6 @@ module.exports = {
     getCategories,
     getItemsByCategory,
     getItemsByMinDate,
-    getItemById
+    getItemById,
+    getPublishedItemsByCategory 
 };
