@@ -195,7 +195,7 @@ app.get('/category/:id', (req, res) => {
   });
 
 app.get('/additem', (req, res) => {
-    res.render('addItem');
+    res.render('additem');
 });
 
 app.post('/additem', upload.single('featureImage'), async (req, res) => {
