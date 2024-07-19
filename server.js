@@ -56,7 +56,7 @@ hbs.handlebars.registerHelper('safeHTML', function(context) {
     return new hbs.handlebars.SafeString(context);
 });
 
-
+app.set('views', path.join(__dirname, 'views'));
 
 app.engine('.hbs', exphbs.engine({
     extname: '.hbs',  
