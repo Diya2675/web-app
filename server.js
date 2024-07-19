@@ -55,6 +55,7 @@ hbs.handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
 hbs.handlebars.registerHelper('safeHTML', function(context) {
     return new hbs.handlebars.SafeString(context);
 });
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', path.join(__dirname, 'views'));
 
@@ -63,8 +64,6 @@ app.engine('.hbs', exphbs.engine({
     defaultLayout: 'main',  
 }));
 app.set('view engine', '.hbs');  
-
-app.use(express.static("public"));
 
 // Prof's code
 app.use(function(req,res,next){
