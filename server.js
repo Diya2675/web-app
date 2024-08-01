@@ -18,6 +18,7 @@ const streamifier = require('streamifier');
 const storeService = require('./store-service');
 const app = express();
 const HTTP_PORT = process.env.PORT || 8080;
+const pg= require("pg");
 
 // Cloudinary configuration
 cloudinary.config({
