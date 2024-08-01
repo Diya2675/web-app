@@ -1,29 +1,40 @@
-<div class="row">
-    <div class="col-md-12">
-        <h2>Categories</h2>
-        {{#unless categories}}
-        <div class="col-md-12 text-center">
-            <strong>{{message}}</strong>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Categories</h1>
+        <a href="/addcategories" class="btn btn-success pull-right">Add Category</a>
+    </header>
+    {{#if message}}
+        <div class="alert alert-warning">
+            {{message}}
         </div>
-        {{else}}
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
+    {{/if}}
+    {{#if Categories.length}}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each Categories}}
                     <tr>
-                        <th>Category ID</th>
-                        <th>Category Name</th>
+                        <td>{{category}}</td>
+                        <td>
+                            <a href="/categories/delete/{{id}}" class="btn btn-danger">Remove</a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {{#each categories}}
-                    <tr>
-                        <td><a href="/shop?category={{this.id}}">{{this.id}}</a></td>
-                        <td><a href="/shop?category={{this.id}}">{{this.category}}</a></td>
-                   </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
-       {{/unless}}
-    </div>
-</div> 
+                {{/each}}
+            </tbody>
+        </table>
+    {{/if}}
+</body>
+</html>
