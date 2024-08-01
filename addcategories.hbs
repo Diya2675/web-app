@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h2>Add Category</h2>
+    </header>
+    <div class="container" style="padding-top: 90px;">
+        <div class="row">
+            <section class="main col-md-9 offset-md-1">
+                <form method="post" action="/addcategories">
+                    <fieldset>
+                        <legend>Add Category</legend>
+                        <div class="form-group">
+                            <label for="category">Category:</label>
+                            <input type="text" id="category" name="category" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Category</button>
+                    </fieldset>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
