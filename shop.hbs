@@ -1,0 +1,62 @@
+<div class="row">
+  <!-- Main Section -->
+  <section class="main col-md-9">
+    <!-- Display Item Details -->
+    {{#if items}}
+      {{#with items.[0]}}
+        <div class="row">
+          <div class="col-4">
+            <h2>{{title}}</h2>
+            <img src="{{featureImage}}" alt="Feature Image" style="width:100%" />
+          </div>
+          <div class="col-8">
+            <br /><br />
+            <div class="row">
+              <div class="col-12">
+                <h2>{{title}}</h2>
+                {{{safeHTML body}}}
+                <br /><br />
+                <strong>Price:</strong> ${{price}}<br />
+                <strong>Category:</strong> {{category}}<br />
+                <strong>Last Updated:</strong> {{postDate}}
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/with}}
+    {{else}}
+      <!-- No Item Found Message -->
+      <div class="col-md-12 text-center">
+        <h2>{{message}}</h2>
+        <p>Please try another Item / Category</p>
+      </div>
+    {{/if}}
+  </section>
+
+  <!-- Sidebar Section -->
+  <aside class="col-md-3">
+    <br /><br />
+    <!-- List of Items -->
+    {{#if items}}
+      <h4>Items</h4>
+      <ul class="list-group">
+        {{#each items}}
+          <a href="/items/{{this._id}}" class="list-group-item">{{this.title}}</a>
+        {{/each}}
+      </ul>
+    {{/if}}
+    {{#if categories}}
+    <h4>Categories</h4>
+    <ul class="list-group">
+        <a href="/Categories?category=1" class="list-group-item">Home, Garden</a>
+        <a href="/Categories?category=2" class="list-group-item">Electronics, Computers, Video Games</a>
+        <a href="/Categories?category=3" class="list-group-item">Clothing</a>
+        <a href="/Categories?category=4" class="list-group-item">Sports & Outdoors</a>
+        <a href="/Categories?category=5" class="list-group-item">Pets</a>
+    </ul>
+    {{else}}
+    <p>No categories found.</p>
+    {{/if}}
+    </aside>
+    
+
